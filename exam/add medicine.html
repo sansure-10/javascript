@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+     var array = []
+    function datasave() {
+        
+        var s = confirm("Do you want to submit the details")
+        if (s === true) {
+            var data = [document.getElementById("name").value, document.getElementById("mname").value, document.getElementById("price").value, document.getElementById("qty").value]
+
+            array.push(data)
+            localStorage.setItem("data", JSON.stringify(array))
+
+
+            document.getElementById("name").value = ""
+            document.getElementById("mname").value = ""
+            document.getElementById("price").value = ""
+            document.getElementById("qty").value = ""
+
+
+
+        }
+        else {
+            return false
+
+        }
+
+
+
+    }
+
+
+
+</script>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="medical shop.html">HOME</a>
+                </li>
+            </ul>
+        </nav>
+        <h2>ADD MEDICINE</h2>
+        <form class="form-horizontal" action="/action_page.php">
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="name">Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="mname">Medicine Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="mname" placeholder="Enter medicine name" name="mname">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="mname">Quantity:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="qty" placeholder="No of quantity" name="mname">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="mname">Price:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="price" placeholder="Price" name="mname">
+                </div>
+            </div>
+
+
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember">Details are correct</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="vertical-center">
+            <input type="button" class="btn btn-primary" onclick="datasave()" value="Submit">
+            <input type="button" class="btn btn-primary" onclick="location.href='medical shop.html'" value="HOME">
+            </form>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
